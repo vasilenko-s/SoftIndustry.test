@@ -16,6 +16,8 @@
 //});
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/', 'HomeController@store')->name('store');
 
 
 Route::get('/list', 'ListController@show')->name('list');
+

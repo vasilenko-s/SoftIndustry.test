@@ -8,6 +8,7 @@
             {{--{{ print_r(Session::all()) }}--}}
             {{--</pre>--}}
 
+             {{--вывод ошибок валидации--}}
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>
@@ -20,34 +21,41 @@
                 </div>
             @endif
 
-            <div class="">
-                <h2>Contact us!</h2>
-            </div>
+            {{--вывод статуса--}}
+            @if (Session::get('status'))
+                <div class="alert alert-success">
+                           {{ Session::get('status') }}
+                </div>
+            @endif
 
-            <p>
-                This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
-            </p>
 
+            {{--форма создания сотрудника--}}
             <form method="post" action="">
                 {{  csrf_field()  }}
+
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Jane Doe">
+                    <input type="text" class="form-control" id="name" name="name" value="" placeholder="Введите имя сотрудника">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" value="{{ old('email') }}" name="email" placeholder="Email">
+                    <label for="surname">Surname</label>
+                    <input type="text" class="form-control" id="surname" name="surname" value="" placeholder="Введите фамилию сотрудника">
                 </div>
                 <div class="form-group">
-                    <label for="site">Site</label>
-                    <input type="text" class="form-control" id="site" value="{{ old('site') }}" name="site" placeholder="Site">
+                    <label for="photo">Photo</label>
+                    <input type="file" class="form__input" id="photo" name="photo"  value='image/jpeg,image/png'>
                 </div>
-                <div class="form-group">
-                    <label for="text">Text</label>
-                    <textarea class="form-control" id="text" name="text" rows="3">{{ old('text') }}</textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+
+                <li class="form__item">
+                    <label class='form__inline-label' for="avatar">Аватар:</label>
+                    <input class='form__inline-input' id='avatar' name='avatar' type="file" value='image/jpeg,image/png'>
+                </li>
+
+
+                <button type="submit" class="btn btn-primary">Отправить</button>
             </form>
          </div>
     </div>
+
+
 </div>

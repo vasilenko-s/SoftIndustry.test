@@ -14,24 +14,26 @@
 
     <!-- Custom styles for this template -->
     <link href="css/jumbotron.css" rel="stylesheet">
+    {{--<link rel="stylesheet" href="css/main.css">--}}
+    <link href="css/sticky-footer.css" rel="stylesheet">
 </head>
 
 <body>
 
 @section('navbar')
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Test PHP project </a>
+        <a class="navbar-brand" href="#">PHP test project </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item  ">
+                    <a class="nav-link" href="{{ route('home') }}">Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('list') }}">List of of employees</a>
+                    <a class="nav-link" href="{{ route('list') }}">List of of employees </a>
                 </li>
             </ul>
 
@@ -73,8 +75,11 @@
 
 </main>
 
-<footer class="container">
-    <p> Test PHP - 2018</p>
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">PHP test - 2018 </span>
+    </div>
 </footer>
 
 <!-- Bootstrap core JavaScript
