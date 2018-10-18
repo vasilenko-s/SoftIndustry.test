@@ -17,8 +17,11 @@ class CreateEmployeesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
-            $table->string('surname');
-            $table->string('photo')->default('img/image.jpg');
+            $table->string('photo');
+            $table->integer('sociability');
+            $table->integer('engineering');
+            $table->integer('timemanagment');
+            $table->integer('languages');
         });
     }
 

@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{!! csrf_token() !!}" />
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Employee monitoring</title>
+    <title>{{ $title }}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="css/jumbotron.css" rel="stylesheet">
-    {{--<link rel="stylesheet" href="css/main.css">--}}
+    <link rel="stylesheet" href="css/main.css">
     <link href="css/sticky-footer.css" rel="stylesheet">
+
+
+
 </head>
 
 <body>
@@ -41,37 +45,13 @@
     </nav>
 @show
 
-<main role="main">
+<main class="main" >
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     @yield('header')
 
     @yield('content')
 
-    {{--<div class="container">--}}
-
-    {{--<!-- Example row of columns -->--}}
-    {{--<div class="row">--}}
-    {{--<div class="col-md-4">--}}
-    {{--<h2>Heading</h2>--}}
-    {{--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>--}}
-    {{--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>--}}
-    {{--</div>--}}
-    {{--<div class="col-md-4">--}}
-    {{--<h2>Heading</h2>--}}
-    {{--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>--}}
-    {{--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>--}}
-    {{--</div>--}}
-    {{--<div class="col-md-4">--}}
-    {{--<h2>Heading</h2>--}}
-    {{--<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>--}}
-    {{--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-
-    {{--<hr>--}}
-
-    {{--</div> <!-- /container -->--}}
 
 </main>
 
@@ -89,5 +69,12 @@
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 <script src="../../assets/js/vendor/popper.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
+
+<!-- Библиотека jQuery -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+</script>
+
 </body>
 </html>

@@ -3,40 +3,60 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    const DEFAULT_PHOTO ='image.jpg';
+
+    //список проектов
+    static
+
     public function index(){
 
-        return view('welcome');
+        //список проектов
+        $projects=Project::all();
+
+        return view('welcome')->withProjects($projects)->withTitle('Employee monitoring');
 
     }
-
 
     public function store(Request $request){
 
         //Validation
         $request->validate([
-            'name' => 'required',
-            'surname' => 'required'
+            'sociability' => 'required',
+            'engineering' => 'required',
+            'timemanagment'=> 'required',
+            'languages'=> 'required'
         ]);
 
-//        //Save avatar
-//        $file=$request->file('avatar');
-//        $filename=$file->getClientOriginalName();
-//        $file->storeAs('public/img', $filename);
+        //Save photo
+        $file=$request->file('photo');
+        if ($file) {
+            $filename = $file->getClientOriginalName();
+            $file->storeAs('public/img', $filename);
+        } else {$filename = self::DEFAULT_PHOTO; }
 
         // save form's data
         Employee::create([
             'name' => $request->input('name'),
-            'surname' => $request->input('surname')
+            'photo' => $filename,
+            'sociability'=> $request->input('sociability'),
+            'engineering'=> $request->input('engineering'),
+            'timemanagment'=> $request->input('timemanagment'),
+            'languages'=> $request->input('languages'),
+        ])->projects()->attach( $request->input('project'));
 
-        ]);
 
         //редирект на страницу создания сотрудника
         $request->session()->flash('status', 'Данные успешно сохранены!');
-        return view('welcome');
+
+        //список проектов
+        $projects=Project::all();
+
+        return view('welcome')->withProjects($projects)->withTitle('Employee monitoring');
 
     }
 

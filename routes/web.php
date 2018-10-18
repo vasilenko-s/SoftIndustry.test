@@ -21,3 +21,5 @@ Route::post('/', 'HomeController@store')->name('store');
 
 Route::get('/list', 'ListController@show')->name('list');
 
+Route::get('/search','ListController@ajaxSearch');
+
