@@ -86,54 +86,52 @@
                 name: $("#name").val(),
             },
             success: function(result){
-                        $("#msg2").html(result.msg);
+
                         console.log(result.employee);
 
-                        $("#list").empty(); //удаляем предыдущие строки в таблице
+                $( "#list" ).empty();//удаляем строки в таблице!
 
-                $("#list").html(
-                            output = "<tbody id='list' >",
-                            output = "<tr>",
-                                output += "<th scope='row'>",
-                                    output += "",
-                                output += "</th>",
+                $("#list").html( // вывод результата поиска
+                    output = "<tr>",
+                    output += "<th scope='row'>",
+                    output += "",
+                    output += "</th>",
 
-                                output += "<td>",
-                            output +="<div class='avatar'>",
-                            output +="<img  src=\"storage/img/" + result.employee.photo+ "\" alt=\"Аватар\" class=\"avatar__pic\">",
-                            output +="</div>",
-                            output += "</td>",
+                    output += "<td>",
+                    output +="<div class='avatar'>",
+                    output +="<img  src=\"storage/img/" + result.employee.photo+ "\" alt=\"Аватар\" class=\"avatar__pic\">",
+                    output +="</div>",
+                    output += "</td>",
 
-                            output += "<td>",
-                            output += result.employee.name,
-                            output += "</td>",
+                    output += "<td>",
+                    output += result.employee.name,
+                    output += "</td>",
 
-                            output += "<td>",
-                            output += result.employee.sociability,
-                            output += "</td>",
+                    output += "<td>",
+                    output += result.employee.sociability,
+                    output += "</td>",
 
-                            output += "<td>",
-                            output += result.employee.engineering,
-                            output += "</td>",
+                    output += "<td>",
+                    output += result.employee.engineering,
+                    output += "</td>",
 
-                            output += "<td>",
-                            output += result.employee.timemanagment,
-                            output += "</td>",
+                    output += "<td>",
+                    output += result.employee.timemanagment,
+                    output += "</td>",
 
-                            output += "<td>",
-                            output += result.employee.languages,
-                            output += "</td>",
+                    output += "<td>",
+                    output += result.employee.languages,
+                    output += "</td>",
 
-                            output += "<td>",
-                            output += result.projects,
-                            output += "</td>",
+                    output += "<td>",
+                    output += result.projects.length,
+                    output += "</td>",
 
-                            $( "#table_head" ).append(output),
-                        );
-
+                    $( "#table_head" ).append(output)
+                );
 
                      },
-            error: function(){alert('Problem');}
+            error: function(){alert('No result');}
         });
     }
 
