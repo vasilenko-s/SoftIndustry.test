@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="csrf-token" content="{!! csrf_token() !!}" />
+    {{--<meta name="csrf-token" content="{!! csrf_token() !!}" />--}}
     <link rel="icon" href="../../../../favicon.ico">
 
     <title>{{ $title }}</title>
@@ -17,6 +17,7 @@
     <link href="css/jumbotron.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link href="css/sticky-footer.css" rel="stylesheet">
+
 
 
 
@@ -65,16 +66,99 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 <script src="../../assets/js/vendor/popper.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
 
-<!-- Библиотека jQuery -->
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+    function getMessage() {
+        $.ajax({
+            url: '/search',
+            type: "GET",
+            dataType : "json",
+            data: {
+                name: $("#name").val(),
+            },
+            success: function(result){
+                        $("#msg2").html(result.msg);
+                        console.log(result.employee);
+
+                        $("#list").empty(); //удаляем предыдущие строки в таблице
+
+                $("#list").html(
+                            output = "<tbody id='list' >",
+                            output = "<tr>",
+                                output += "<th scope='row'>",
+                                    output += "",
+                                output += "</th>",
+
+                                output += "<td>",
+                            output +="<div class='avatar'>",
+                            output +="<img  src=\"storage/img/" + result.employee.photo+ "\" alt=\"Аватар\" class=\"avatar__pic\">",
+                            output +="</div>",
+                            output += "</td>",
+
+                            output += "<td>",
+                            output += result.employee.name,
+                            output += "</td>",
+
+                            output += "<td>",
+                            output += result.employee.sociability,
+                            output += "</td>",
+
+                            output += "<td>",
+                            output += result.employee.engineering,
+                            output += "</td>",
+
+                            output += "<td>",
+                            output += result.employee.timemanagment,
+                            output += "</td>",
+
+                            output += "<td>",
+                            output += result.employee.languages,
+                            output += "</td>",
+
+                            output += "<td>",
+                            output += result.projects,
+                            output += "</td>",
+
+                            $( "#table_head" ).append(output),
+                        );
+
+
+                     },
+            error: function(){alert('Problem');}
+        });
+    }
+
 </script>
+
+{{--<script>--}}
+
+    {{--$(document).ready(function(){--}}
+
+        {{--$("#but1").click(function(){--}}
+            {{--$.ajax({--}}
+                {{--url:"/search",--}}
+                {{--type:'GET',--}}
+                {{--success:function(result){--}}
+                    {{--alert(result.success);--}}
+                    {{--$("#par1").html(result.success)--}}
+                {{--},--}}
+                {{--error: function(){alert('Problem');}--}}
+            {{--});--}}
+        {{--});--}}
+
+    {{--});--}}
+
+{{--</script>--}}
+
 
 </body>
 </html>

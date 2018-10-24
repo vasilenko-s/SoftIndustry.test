@@ -36,6 +36,7 @@ class HomeController extends Controller
         $file=$request->file('photo');
         if ($file) {
             $filename = $file->getClientOriginalName();
+            // файл сохраняется  в папке storage/img, при символьной ссылке
             $file->storeAs('public/img', $filename);
         } else {$filename = self::DEFAULT_PHOTO; }
 

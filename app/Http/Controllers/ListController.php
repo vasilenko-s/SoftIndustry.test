@@ -20,10 +20,17 @@ class ListController extends Controller
 
     }
 
-    public function ajaxSearch(){
-//        $msg = "This is a simple message.";
-//
-//        return response()->json(array('msg'=> $msg), 200);
-        return response()->json(['success'=>'Data is successfully added']);
+    public function ajaxSearch(Request $search){
+//        Получаем значение имени из формы поиска
+        $name=$search['name'];
+
+//        Производим поиск  данных в таблице бд по заданому параметру
+        $employee = Employee::where('name', $name)->first();
+
+//        Получаем количество проектов
+        $projects=$employee->projects;
+
+//        Передаем результат
+        return response()->json(['employee'=>$employee, 'msg'=>"Успех", 'projects' => $projects]);
     }
 }
