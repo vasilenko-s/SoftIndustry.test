@@ -39,8 +39,8 @@
 **P.S.**
 **Для того чтобы развернуть проект запустите:**
 
-миграции: php artisan migrate
+миграции: _php artisan migrate_
 
-сидер: php artisan db:seed
+сидер: _php artisan db:seed_
 
-установите символьную ссылку на сервере: php artisan storage:link 
+установите символьную ссылку на сервере: _php artisan storage:link _
