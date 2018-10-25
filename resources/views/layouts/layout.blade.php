@@ -77,7 +77,7 @@
 
 <script>
 
-    function getMessage() {
+    function ajaxSearch() {
         $.ajax({
             url: '/search',
             type: "GET",
@@ -87,76 +87,56 @@
             },
             success: function(result){
 
-                        console.log(result.employee);
+                $( "#list" ).empty();//удаляем строки в таблице
 
-                $( "#list" ).empty();//удаляем строки в таблице!
+                  // вывод результата поиска
+                    var rowHtml = "<tr>";
 
-                $("#list").html( // вывод результата поиска
-                    output = "<tr>",
-                    output += "<th scope='row'>",
-                    output += "",
-                    output += "</th>",
+                    rowHtml += "<th scope='row'>",
+                    rowHtml += "",
+                    rowHtml += "</th>",
 
-                    output += "<td>",
-                    output +="<div class='avatar'>",
-                    output +="<img  src=\"storage/img/" + result.employee.photo+ "\" alt=\"Аватар\" class=\"avatar__pic\">",
-                    output +="</div>",
-                    output += "</td>",
+                    rowHtml += "<td>",
+                    rowHtml +="<div class='avatar'>",
+                    rowHtml +="<img  src=\"storage/img/" + result.employee.photo+ "\" alt=\"Аватар\" class=\"avatar__pic\">",
+                    rowHtml +="</div>",
+                    rowHtml += "</td>",
 
-                    output += "<td>",
-                    output += result.employee.name,
-                    output += "</td>",
+                    rowHtml += "<td>",
+                    rowHtml += result.employee.name,
+                    rowHtml += "</td>",
 
-                    output += "<td>",
-                    output += result.employee.sociability,
-                    output += "</td>",
+                    rowHtml += "<td>",
+                    rowHtml += result.employee.sociability,
+                    rowHtml += "</td>",
 
-                    output += "<td>",
-                    output += result.employee.engineering,
-                    output += "</td>",
+                    rowHtml += "<td>",
+                    rowHtml += result.employee.engineering,
+                    rowHtml += "</td>",
 
-                    output += "<td>",
-                    output += result.employee.timemanagment,
-                    output += "</td>",
+                    rowHtml += "<td>",
+                    rowHtml += result.employee.timemanagment,
+                    rowHtml += "</td>",
 
-                    output += "<td>",
-                    output += result.employee.languages,
-                    output += "</td>",
+                    rowHtml += "<td>",
+                    rowHtml += result.employee.languages,
+                    rowHtml += "</td>",
 
-                    output += "<td>",
-                    output += result.projects.length,
-                    output += "</td>",
+                    rowHtml += "<td>",
+                    rowHtml += result.projects.length,
+                    rowHtml += "</td>",
 
-                    $( "#table_head" ).append(output)
-                );
+                    rowHtml += "</tr>",
 
-                     },
+
+                    $( "#list" ).append(rowHtml)
+
+            },
             error: function(){alert('No result');}
         });
     }
 
 </script>
-
-{{--<script>--}}
-
-    {{--$(document).ready(function(){--}}
-
-        {{--$("#but1").click(function(){--}}
-            {{--$.ajax({--}}
-                {{--url:"/search",--}}
-                {{--type:'GET',--}}
-                {{--success:function(result){--}}
-                    {{--alert(result.success);--}}
-                    {{--$("#par1").html(result.success)--}}
-                {{--},--}}
-                {{--error: function(){alert('Problem');}--}}
-            {{--});--}}
-        {{--});--}}
-
-    {{--});--}}
-
-{{--</script>--}}
-
 
 </body>
 </html>

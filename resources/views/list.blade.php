@@ -15,7 +15,7 @@
                 id="name">
 
                 <button type="button" class="btn btn-outline-success my-2 my-sm-0"  id="but1"
-                        onClick=getMessage()>Отправить</button>
+                        onClick=ajaxSearch()>Отправить</button>
             </form>
 
 
@@ -81,12 +81,6 @@
             </tbody>
         </table>
     </div>
-
-
-    <div id = 'msg2'>This message will be replaced using Ajax.
-        Click the button to replace the message.</div>
-
-
 
 
 @endsection

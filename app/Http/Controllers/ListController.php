@@ -27,10 +27,10 @@ class ListController extends Controller
 //        Производим поиск  данных в таблице бд по заданому параметру
         $employee = Employee::where('name', $name)->first();
 
-//        Получаем количество проектов
+//        Получаем проекты сотрудника
         $projects=$employee->projects;
 
 //        Передаем результат
-        return response()->json(['employee'=>$employee, 'msg'=>"Успех", 'projects' => $projects]);
+        return response()->json(['employee'=>$employee, 'projects'=>$projects] );
     }
 }
