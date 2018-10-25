@@ -35,3 +35,8 @@
 *Бекенд* — PHP фреймверк (Laravel, Symphony, YII ect);
 
 *Фронтенд* — фреймверки и технологии на ваш выбор. SPA фронтенд будет большим плюсом(Angular, react, vue js ect).
+
+**Для того чтобы развернуть проект запустите:**
+миграции: php artisan migrate
+сидер: php artisan db:seed
+установите символьную ссылку на сервере: php artisan storage:link 
