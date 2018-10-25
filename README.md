@@ -43,5 +43,5 @@
 
 сидер: _php artisan db:seed_
 
-установите символьную ссылку на сервере:  _php artisan storage:link _
+установите символьную ссылку на сервере:  _php artisan storage:link_
 
