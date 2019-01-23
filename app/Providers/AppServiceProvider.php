@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //loading in heroku
+        Schema::defaultStringLength(191);
     }
 
     /**
