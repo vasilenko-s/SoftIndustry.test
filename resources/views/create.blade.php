@@ -105,7 +105,7 @@
             <div class="form-group">
                 <label for="project">Проект</label>
                 <select class="custom-select d-block w-100 " id="project[]" name="project[]">
-                    <option value="">Выберите...</option>
+                    <option value="" disabled>Выберите...</option>
 
                     @foreach($projects as $project)
                         <option value="{{ $project->id }}"> {{ $project->name }} </option>
