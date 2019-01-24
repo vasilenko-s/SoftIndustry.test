@@ -49,10 +49,10 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
-        "dokku": [
+        "dokku": {
               "predeploy": ".dokku/predeploy.sh",
               "postdeploy": ".dokku/postdeploy.sh"
-        ]   
+        }   
     },
     "config": {
         "preferred-install": "dist",
