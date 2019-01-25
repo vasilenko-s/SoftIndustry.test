@@ -49,10 +49,9 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
-        "dokku": {
-              "predeploy": ".dokku/predeploy.sh",
-              "postdeploy": ".dokku/postdeploy.sh"
-        }   
+        "post-install-cmd": [
+            "ln -sr storage/app/public public/storage"
+        ]
     },
     "config": {
         "preferred-install": "dist",
