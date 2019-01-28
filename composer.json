@@ -49,7 +49,7 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
-        "pщые-install-cmd": [
+        "post-install-cmd": [
             "php artisan storage:link
 "
         ]
