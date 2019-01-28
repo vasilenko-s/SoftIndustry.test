@@ -1,6 +1,4 @@
-## softIndustry.test
-
-**Работающее приложение здесь:**
+##Работающее приложение здесь:
 http://soft-industry.herokuapp.com/
 
 
