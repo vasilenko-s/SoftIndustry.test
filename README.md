@@ -1,4 +1,4 @@
-## newapp.test
+## softIndustry.test
 
 **Работающее приложение на хостинге:**
 http://soft-industry.herokuapp.com/
