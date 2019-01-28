@@ -50,7 +50,7 @@
             "@php artisan package:discover --ansi"
         ],
         "post-install-cmd": [
-            "[[ -r public/storage ]] "
+            "-r public/storage "
         ]
     },
     "config": {
