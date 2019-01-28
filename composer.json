@@ -49,8 +49,8 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
-        "post-install-cmd": [
-            "-r public/storage "
+        "pre-install-cmd": [
+            "[[ -r public/storage ]] && rm public/storage"
         ]
     },
     "config": {
