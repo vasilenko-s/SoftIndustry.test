@@ -50,7 +50,8 @@
             "@php artisan package:discover --ansi"
         ],
         "post-install-cmd": [
-            "ln -sr storage/app/public public/storage"
+            "[[ -r public/storage ]] && rm public/storage",
+            "php artisan storage:link"
         ]
     },
     "config": {
